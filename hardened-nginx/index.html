@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevOps Profile | Hardened Docker</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f3f2ef;
+            color: #1d2226;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #0a66c2;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: white;
+        }
+
+        .logo {
+            font-size: 30px;
+            font-weight: bold;
+            margin-right: 25px;
+        }
+
+        .search {
+            background: white;
+            color: #666;
+            padding: 10px 18px;
+            border-radius: 5px;
+            width: 280px;
+        }
+
+        .nav-links {
+            margin-left: auto;
+            display: flex;
+            gap: 25px;
+            font-size: 14px;
+        }
+
+        /* Main */
+        .container {
+            width: 900px;
+            max-width: 95%;
+            margin: 30px auto;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+
+        .cover {
+            height: 180px;
+            background: linear-gradient(135deg, #0a66c2, #004182);
+        }
+
+        .profile {
+            padding: 0 35px 30px;
+            position: relative;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 5px solid white;
+            position: absolute;
+            top: -60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #0a66c2;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        .profile-info {
+            padding-top: 75px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .headline {
+            font-size: 17px;
+            color: #444;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 10px 22px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border: 1px solid #0a66c2;
+        }
+
+        .primary {
+            background: #0a66c2;
+            color: white;
+        }
+
+        .secondary {
+            background: white;
+            color: #0a66c2;
+        }
+
+        /* Content */
+        .card {
+            background: white;
+            margin-top: 20px;
+            padding: 25px 30px;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #444;
+            line-height: 1.7;
+        }
+
+        /* Skills */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill {
+            background: #e8f3ff;
+            color: #0a66c2;
+            padding: 9px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        /* Experience */
+        .experience {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .company-icon {
+            width: 55px;
+            height: 55px;
+            background: #0a66c2;
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .experience h3 {
+            margin-bottom: 5px;
+        }
+
+        .experience p {
+            margin-bottom: 5px;
+        }
+
+        /* Docker Status */
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e9f7ef;
+            border-left: 5px solid #28a745;
+            border-radius: 5px;
+        }
+
+        .status strong {
+            color: #218838;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+            font-size: 13px;
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .search {
+                display: none;
+            }
+
+            .nav-links {
+                gap: 10px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .cover {
+                height: 130px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="logo">in</div>
+
+        <div class="search">
+            🔍 Search
+        </div>
+
+        <div class="nav-links">
+            <span>Home</span>
+            <span>My Network</span>
+            <span>Jobs</span>
+            <span>Messages</span>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Profile -->
+        <div class="profile-card">
+
+            <div class="cover"></div>
+
+            <div class="profile">
+
+                <div class="avatar">
+                    RK
+                </div>
+
+                <div class="profile-info">
+
+                    <h1>Rakesh Kumar</h1>
+
+                    <div class="headline">
+                        Java Full Stack Developer | DevOps Engineer |
+                        AWS | Docker | Kubernetes | Terraform
+                    </div>
+
+                    <div class="location">
+                        Bengaluru, Karnataka, India
+                    </div>
+
+                    <div class="buttons">
+                        <button class="btn primary">
+                            Connect
+                        </button>
+
+                        <button class="btn secondary">
+                            Message
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- About -->
+        <div class="card">
+
+            <h2>About</h2>
+
+            <p>
+                Java Full Stack Developer and DevOps enthusiast with
+                experience in building scalable applications and
+                automating cloud infrastructure.
+            </p>
+
+            <p>
+                Currently working with Spring Boot, Microservices,
+                Docker, Kubernetes, Terraform, AWS and CI/CD pipelines.
+            </p>
+
+        </div>
+
+
+        <!-- Skills -->
+        <div class="card">
+
+            <h2>Skills</h2>
+
+            <div class="skills">
+
+                <div class="skill">Java</div>
+                <div class="skill">Spring Boot</div>
+                <div class="skill">Microservices</div>
+                <div class="skill">Docker</div>
+                <div class="skill">Kubernetes</div>
+                <div class="skill">Terraform</div>
+                <div class="skill">AWS</div>
+                <div class="skill">GCP</div>
+                <div class="skill">Jenkins</div>
+                <div class="skill">GitHub</div>
+                <div class="skill">Kafka</div>
+                <div class="skill">Linux</div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Experience -->
+        <div class="card">
+
+            <h2>Experience</h2>
+
+            <div class="experience">
+
+                <div class="company-icon">
+                    DEV
+                </div>
+
+                <div>
+                    <h3>Software Engineer</h3>
+
+                    <p>
+                        Java Full Stack & DevOps
+                    </p>
+
+                    <p>
+                        3.5+ Years Experience
+                    </p>
+
+                    <p>
+                        Spring Boot · AWS · Docker · Kubernetes ·
+                        Terraform · CI/CD
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Docker Security -->
+        <div class="card">
+
+            <h2>🚀 Deployment Status</h2>
+
+            <div class="status">
+
+                <strong>● Container Running Securely</strong>
+
+                <p>
+                    This application is running inside a hardened
+                    Docker container using a non-root user.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+        Hardened Docker Demo · Running on GCP · Non-Root Container
+    </footer>
+
+</body>
+</html>

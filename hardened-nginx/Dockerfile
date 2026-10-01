@@ -5,7 +5,12 @@ RUN addgroup -S appgroup && \
 
 COPY index.html /usr/share/nginx/html/index.html
 
-RUN chown -R appuser:appgroup /usr/share/nginx/html
+RUN mkdir -p /var/cache/nginx/client_temp && \
+    chown -R appuser:appgroup \
+    /usr/share/nginx/html \
+    /var/cache/nginx
+
+RUN sed -i '/^[[:space:]]*user[[:space:]]/d' /etc/nginx/nginx.conf
 
 USER appuser
 
